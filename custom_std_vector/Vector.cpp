@@ -13,6 +13,60 @@ Vector<T>::Vector(const Vector<T>& other)
 }
 
 template <class T>
+Vector<T>::Vector(Vector<T>&& other) noexcept
+    : capacity_(other.capacity_), data_(other.data_), size_(other.size_) {
+        other.size_ = 0;
+        other.data_ = nullptr;
+        other.capacity_ = 0;
+    }
+
+template <class T>
+Vector<T>& Vector<T>::operator=(Vector<T>&& other) noexcept{
+    if (this == &other){
+        return *this;
+    }
+
+    delete[] data_;
+    data_ = other.data_;
+    size_ = other.size_;
+    capacity_ = other.capacity_;
+    
+    other.data_ = nullptr;
+    other.size_ = 0;
+    other.capacity_ = 0;
+
+    return *this;
+}
+
+
+template <class T>
+const T& Vector<T>::operator[](std::size_t index) const{
+    
+    return data_[index];
+}
+
+template <class T>
+T& Vector<T>::operator[](std::size_t index){
+    return data_[index];
+}
+
+template <class T>
+const T& Vector<T>::at(std::size_t index) const{
+    if (index >= size_){
+        throw std::out_of_range("Error: index is out of range.\n");
+    }
+    return data_[index];
+}
+
+template <class T>
+T& Vector<T>::at(std::size_t index){
+    if (index >= size_){
+        throw std::out_of_range("Error: index is out of range.");
+    }
+    return data_[index];
+}
+
+template <class T>
 Vector<T>& Vector<T>::operator=(const Vector<T>& other) {
     if (this == &other) {
         return *this;
