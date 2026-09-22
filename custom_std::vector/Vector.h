@@ -2,21 +2,27 @@
 template <class T>
 class Vector{
 public:
-    Vector();
+    Vector(std::size_t capacity);
     ~Vector();
-    size_t size() const;
+    std::size_t size() const;
     bool empty() const;
+    std::size_t get_capacity() const;
     T front() const;
     T back() const;
+    void reserve(std::size_t n);
     void push_back(T value);
     void pop_back();
     void clear();
-
+    void shrink_to_fit();
+    void resize(std::size_t n);
 
 private:
-    static constexpr std::size_t CAPACITY = 10; //MAX CAPACITY
-    T data_[CAPACITY];
-    std::size_t size_ = 0;
+    std::size_t capacity_ {};
+    T* data_ = nullptr;
+    std::size_t size_ {};
+
+    void copy_new_array_(T* new_data);
+    void allocate_new_array(std::size_t capacity);
 };
 
 #include "Vector.cpp"
