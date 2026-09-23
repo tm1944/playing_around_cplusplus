@@ -1,0 +1,4 @@
+/mnt/c/Users/talla/Documents/dev/playing_around_cplusplus/custom_std_vector/build/CMakeFiles/vector_tests.dir
+/mnt/c/Users/talla/Documents/dev/playing_around_cplusplus/custom_std_vector/build/CMakeFiles/test.dir
+/mnt/c/Users/talla/Documents/dev/playing_around_cplusplus/custom_std_vector/build/CMakeFiles/edit_cache.dir
+/mnt/c/Users/talla/Documents/dev/playing_around_cplusplus/custom_std_vector/build/CMakeFiles/rebuild_cache.dir
